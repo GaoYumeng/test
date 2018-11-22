@@ -20,22 +20,23 @@
 个人经历	
 曾担任策划师一职，在职期间以PPT制作与现场统筹安排为主要工作
 
-........项目经验
+项目经验
 2018/5-2018/9                金色童年有限公司
-项目名称:HAProxy负载均衡和ACL控制
+项目名称:HAProxy负载均衡
 项目描述:
-因为公司在旺季时，节假日时网站访问量增大,顾客订单会瞬增，且较为集中，节假日时间每日访问量可达10w，有时会出现网站页面会偶尔会出现无法访问的状况,有时会影响客户订单以及查看公司业务,所以需要网络部对网站进行HA高可用性负载均衡,保证客户在访问网站时不会出现由于访问量过大而产生的高并发情况.
+因为公司在旺季时，节假日时网站访问量增大,顾客订单会瞬增，且较为集中，节假日时间每日访问量可达10w，有时会出现网站页面会偶尔会出现无法访问的状况,有时会影响客户订单以及查看公司业务,所以需要网络部对网站进行HA高可用性负载均衡,保证客户在访问网站时不会出现由于访问量过大而产生的高并发情况.项目整体拓扑结构如下：前端为HA中部为web集群后端数据库同步集群。集群基于原来的web集群上进行优化，在前端增加HA高可用性负载均衡。
 使用环境:centos服务器系统
-使用技术:haproxy,keepalived,iptables,在haproxy配置文件上定义ACL,nginx,php,mariadb
-本人角色:linux运维工程师
+使用技术:haproxy,keepalived,iptables,在haproxy配置文件上定义ACL,nginx,php,mariadb，Galera Cluster
+
+本人角色:linux运维工程师,日常服务器维护
 具体实施描述:
-1,实验前准备,在两台服务器上安装haproxy和keepalived服务,设置好keepalived的主从关系
+1,项目前环境准备,在两台服务器上安装haproxy和keepalived服务,设置好keepalived的主从关系
 2,事先准备好web server
 3,打开web server测试,一台后端serve宕机,haproxy会调度到另一个server,继续提供 服务
   一个主的haproxy宕机keepalive的会把vip移到从上,继续提供服务.
 4,基于ACL控制实现动静分离
  4.1在haproxy上定义ACL和后端服务器
- 4.2开启web服务(nginx,php-fpm,mariadb)
+ 4.2开启web服务(nginx,php-fpm,mariadb，Galera Cluster)
  4.3测试动静是否分离
 5,基于ACL实现权限控制及会话控制,检测权限控制,在设置的网段之外不可访问
 本人责任描述:搭建以及测试环境
